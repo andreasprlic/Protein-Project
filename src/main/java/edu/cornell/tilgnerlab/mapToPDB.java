@@ -40,10 +40,10 @@ public class mapToPDB {
         uniprotPDB.show(1); //only showing the top 1 row
 
         //load mapping from hg38 to UniProt and look at SNP
-        DataFrame chr7 = sqlContext.read().parquet(localDIR+"/dataframes.rcsb.org/parquet/humangenome/20160621/hg38/chr7");
+        DataFrame chr7 = sqlContext.read().parquet(localDIR+"/dataframes.rcsb.org/parquet/humangenome/20160517//hg38/chr7");
         chr7.registerTempTable("chr7");
 
-        DataFrame exon1 = sqlContext.sql("select * from chr11 where position = 5227002");
+        DataFrame exon1 = sqlContext.sql("select * from chr7 where position = 5227002");
         System.out.println("human genome mapping to UniProt for exon1:");
         exon1.show();
     }
